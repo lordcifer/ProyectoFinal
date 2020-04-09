@@ -16,7 +16,7 @@ namespace SistemaFacturaciones.Models
 
         public decimal? Descuento { get; set; }
 
-        public decimal? Monto { get; set; }
+        public decimal Monto { get; set; }
 
         public DateTime? Fecha { get; set; }
 
