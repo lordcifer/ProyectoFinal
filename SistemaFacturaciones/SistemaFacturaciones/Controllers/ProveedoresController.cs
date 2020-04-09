@@ -17,7 +17,7 @@ namespace SistemaFacturaciones.Controllers
         // GET: Proveedores
         public ActionResult Index()
         {
-            return View(db.Proveedores.ToList());
+            return View(db.Proveedores.ToList());   
         }
 
         // GET: Proveedores/Details/5
