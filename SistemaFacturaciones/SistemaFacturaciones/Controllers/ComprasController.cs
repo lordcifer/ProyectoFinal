@@ -39,7 +39,7 @@ namespace SistemaFacturaciones.Controllers
         // GET: Compras/Create
         public ActionResult Create()
         {
-            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula");
+            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre");
             ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre");
             return View();
         }
@@ -51,14 +51,37 @@ namespace SistemaFacturaciones.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,producto_id,cliente_id,Cantidad,Fecha")] Compra compra)
         {
-            if (ModelState.IsValid)
+            var existenciaStock = db.Stocks.SingleOrDefault(s => s.producto_id == compra.producto_id);
+            int cantidadValida = 0;
+
+            if (existenciaStock != null)
+                cantidadValida = db.Stocks.SingleOrDefault(s => s.producto_id == compra.producto_id).Cantidad;
+
+            if (ModelState.IsValid && cantidadValida >= compra.Cantidad)
             {
+                if (existenciaStock != null)
+                    existenciaStock.Cantidad -= compra.Cantidad;
+
+                ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
+                ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
+
+                compra.Fecha = DateTime.Now;
                 db.Compras.Add(compra);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View();
             }
 
-            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Cedula", compra.cliente_id);
+            if (cantidadValida < compra.Cantidad)
+            {
+                ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
+                ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
+
+                ViewBag.error = "Error, cantidad elevada, cantidad disponible es " + cantidadValida;
+
+                return View(compra);
+            }
+
+            ViewBag.cliente_id = new SelectList(db.Clientes, "Id", "Nombre", compra.cliente_id);
             ViewBag.producto_id = new SelectList(db.Productos, "Id", "Nombre", compra.producto_id);
             return View(compra);
         }

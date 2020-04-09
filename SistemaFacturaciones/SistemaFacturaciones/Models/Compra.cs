@@ -14,7 +14,7 @@ namespace SistemaFacturaciones.Models
 
         public int? cliente_id { get; set; }
 
-        public int? Cantidad { get; set; }
+        public int Cantidad { get; set; }
 
         public DateTime? Fecha { get; set; }
 
