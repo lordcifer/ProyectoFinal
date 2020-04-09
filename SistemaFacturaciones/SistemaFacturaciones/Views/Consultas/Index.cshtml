@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Consultas";
+}
+
+<div class="jumbotron">
+    <h1>Consultas</h1>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Productos</h2>
+        <p>
+            Filtro:
+            <ul class="list-unstyled">
+                <li>- Por nombre</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Consultar", "Productos", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Clientes</h2>
+        <p>
+            Filtro:
+            <ul class="list-unstyled">
+                <li>- Por nombre</li>
+                <li>- Por categoria</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Consultar", "Clientes", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Proveedores</h2>
+        <p>
+            Filtro:
+            <ul class="list-unstyled">
+                <li>- Por nombre</li>
+                <li>- Por email</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Consultar", "Proveedores", "", new { @class = "btn btn-default" })</p>
+    </div>
+</div>

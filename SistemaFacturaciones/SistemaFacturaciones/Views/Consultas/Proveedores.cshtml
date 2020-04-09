@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SistemaFacturaciones.Models.Proveedore>
+
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+<h2>Proveedores</h2>
+
+@using (Html.BeginForm())
+{
+    <P>
+        @Html.TextBox("query")
+        @Html.DropDownList("seleccion", new List<SelectListItem>
+    {
+        new SelectListItem{Text = "Nombre", Value = "0", Selected = true},
+        new SelectListItem{Text = "Email", Value = "1"}
+    })
+        <input type="submit" value="Buscar" />
+    </P>
+}
+
+<table class="table" id="invoice">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+        </tr>
+    }
+
+</table>
+<button value="Buscar" class="btn btn-default" onclick="generatePDF()" style="float:right;">Generar PDF</button>

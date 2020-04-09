@@ -221,10 +221,13 @@
     <Content Include="Views\Facturacions\Details.cshtml" />
     <Content Include="Views\Facturacions\Edit.cshtml" />
     <Content Include="Views\Facturacions\Index.cshtml" />
+    <Content Include="Views\Consultas\Index.cshtml" />
+    <Content Include="Views\Consultas\Productos.cshtml" />
+    <Content Include="Views\Consultas\Clientes.cshtml" />
+    <Content Include="Views\Consultas\Proveedores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Consultas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
