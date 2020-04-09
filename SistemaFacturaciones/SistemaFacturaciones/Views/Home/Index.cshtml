@@ -1,31 +1,77 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Consultas";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
+<br />
+<br />
+<div class="text-center" style="margin-right:250px;">
+    <h1>Inicio</h1>
+
+</div>
+<br />
+<br />
+<br />
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Productos</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Funciones:
+            <ul class="list-unstyled">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Eliminar</li>
+            </ul>
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>@Html.ActionLink("Administrar", "Index", "Productoes", "", new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Clientes</h2>
+        <p>
+            Funciones:
+            <ul class="list-unstyled">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Modificar</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Administar", "Index", "Clientes", "", new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Proveedores</h2>
+        <p>
+            Funciones:
+            <ul class="list-unstyled">
+                <li>- Insertar</li>
+                <li>- Editar</li>
+                <li>- Modificar</li>
+            </ul>
+        </p>
+        <p>@Html.ActionLink("Administar", "Index", "Proveedores", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Facturaciones</h2>
+        Funcion:
+        <ul class="list-unstyled">
+            <li>- Facturar</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Create", "Facturacions", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Entradas</h2>
+        Funciones:
+        <ul class="list-unstyled">
+            <li>- Agregar a Stock</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Create", "EntradaMercancias", "", new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Consultas</h2>
+        Funcion:
+        <ul class="list-unstyled">
+            <li>- Realizar consultas</li>
+        </ul>
+        <p>@Html.ActionLink("Administar", "Index", "Consultas", "", new { @class = "btn btn-default" })</p>
     </div>
 </div>
